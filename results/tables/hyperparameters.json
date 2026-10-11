@@ -1,0 +1,43 @@
+{
+  "naive": {},
+  "train_mean": {
+    "train_mean": 0.01890931894796614,
+    "trainval_mean": 0.01992241606408197
+  },
+  "HAR_OLS": {
+    "features": [
+      "abs_r",
+      "RV5_past",
+      "RV22_past"
+    ]
+  },
+  "Linear_all": {
+    "features": [
+      "r",
+      "r_lag1",
+      "r_lag2",
+      "abs_r",
+      "RV5_past",
+      "RV22_past",
+      "sigma20",
+      "M10"
+    ]
+  },
+  "Ridge": {
+    "alpha": 1000.0
+  },
+  "RandomForest": {
+    "max_depth": 3,
+    "min_samples_leaf": 5,
+    "max_features": 1.0,
+    "n_estimators": 500
+  },
+  "XGBoost": {
+    "max_depth": 4,
+    "learning_rate": 0.1,
+    "min_child_weight": 10,
+    "n_estimators": 17,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8
+  }
+}
