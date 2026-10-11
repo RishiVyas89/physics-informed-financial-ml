@@ -18,21 +18,25 @@ MSc Physics semester project (five months). This project builds a framework that
 ```
 data/raw/            raw downloads (git-ignored)
 data/processed/      derived datasets (git-ignored)
-mathematica/         notebooks (01_Data_Collection_and_EDA.nb)
-python/              download script; ML code (later)
+mathematica/         notebooks (01 data + EDA, 02 feature engineering)
+python/              download script; 01 prepare splits, 02 train baselines, 03 evaluate
 results/figures/     figures
 results/tables/      result tables
+results/predictions/ validation and test forecasts
+results/metrics/     test metrics, Diebold-Mariano tests, regime breakdown
 results/models/      trained models (git-ignored)
 docs/                data log, notes
 ```
 
-## Reproducing Milestone 1
+## Reproducing the results
 1. `pip install yfinance pandas openpyxl`
 2. `python python/download_sp500.py`, then move `SP500_2011_2026.csv` into `data/raw/`
-3. Open `mathematica/01_Data_Collection_and_EDA.nb` in Mathematica 13.0 and evaluate all cells
+3. Evaluate `mathematica/01_Data_Collection_and_EDA.nb` and `02_Feature_Engineering.nb` in Mathematica 13.0
+4. `python -m venv .venv`, activate, `pip install -r requirements.txt`
+5. `python python/01_prepare_ml_data.py`, then `02_train_baselines.py`, then `03_evaluate_models.py`
 
 ## Progress
 - [x] Milestone 1: data collection, validation, log returns, stylized facts, realized volatility, target construction and aligned dataset
-- [ ] Physics-inspired feature engineering
-- [ ] Baseline and physics-augmented ML models
+- [x] Feature engineering (`features_v1`, leakage-tested) and baseline ML pipeline: naive, HAR, linear, Ridge, Random Forest, XGBoost. Best test RMSE ≈ 0.77 of naive (R²_oos ≈ 0.38); see [`docs/methodology.md`](docs/methodology.md)
+- [ ] Physics-inspired features and physics-augmented models
 - [ ] Advanced models, explainability, regime analysis

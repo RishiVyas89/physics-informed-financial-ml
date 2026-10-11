@@ -104,5 +104,13 @@
 
 ## Milestone 1 status: data collection, returns, realized volatility and target construction COMPLETE (11 October 2026)
 
+## Splits S1: chronological train / validation / test (Python, 12 October 2026)
+- Script: `python/01_prepare_ml_data.py`; input `data/processed/features_v1.csv`
+- Python re-implementation of all features and the target from raw prices matches Mathematica to ≤ 1.8 × 10⁻¹⁵ on all 10 columns
+- 65 / 15 / 20 by row count, then the last 5 rows of train and of validation purged (their targets cross the boundary)
+- Train 2,429 rows (2011-05-04 → 2020-12-24); purged 10; validation 556 (2021-01-05 → 2023-03-21); test 750 (2023-03-29 → 2026-03-25)
+- Output: `data/processed/ml_dataset_v1.csv` (git-ignored), `results/tables/split_definition.csv`
+- Environment: Python 3.13, versions in `requirements.txt`
+
 ## Cleaning operations
 - None applied to the raw file. All checks were done in Mathematica on the imported data.
