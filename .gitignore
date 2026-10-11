@@ -1,0 +1,28 @@
+# Data (regenerate with python/download_sp500.py; Yahoo data should not be redistributed)
+data/raw/
+data/processed/
+
+# Trained models
+results/models/
+
+# Excel copies and lock files
+*.xlsx
+~$*
+
+# Mathematica temporary / backup files
+*.nb~
+*.bak
+*.mx
+*.wl~
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
